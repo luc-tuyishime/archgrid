@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <title>ArchGrid</title>
+
+    <!-- Fonts -->
+   <link href='http://fonts.googleapis.com/css?family=Raleway:400,800,500,600,300,700' rel='stylesheet' type='text/css'>
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- Styles  CSS-->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="container">
+      <div class="row">
+        <div class="home-two-header col-md-12">
+          <div class="brand">
+            <a href="contact-us.html#">
+              <img src="images/logo.png" alt="Nifty">
+            </a>
+          </div>
+            <nav id="nav-wrap" class="main-nav">
+              <div id="mobnav-btn"> </div>
+              <ul class="sf-menu">
+                <li class="current"><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About us</a></li>
+                <li><a href="service.html">Our Services / Product</a></li>
+                <li><a href="portfolio-2-col.html">Portofolio</a></li>
+                <!-- <li><a href="contact-us.html">Find us</a></li> -->
+             </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="pages-header-container">         
+  <div class="container">
+    <div class="row"> 
+      <div class="col-lg-12">
+        <div class="pages-header">
+          <h3 class="title-un"><a href="contact-us.html">Contact Us</a></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<div class="map-container">
+        <div id="test" class="gmap3"></div>
+</div>
+<div class="container-contact-form">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div id="contact-form">
+            <form method="post" id="ajax-contact-form" action="php/email.php">
+              <div class="row">
+                <div class="col-lg-6">
+                  <input type="text" name="fname" id="fname" value="Names">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <input type="text" name="email" id="email" value="Your email (required)">
+                </div>
+    
+              </div>
+              
+              <textarea name="message" id="message" >Your message...</textarea>
+              
+              <input type="submit" value="Submit" class="button" name="email-send">
+          
+            </form>
+        </div>
+      </div>
+      
+      <div class="col-lg-4"> 
+      <div class="height5"></div>
+      <h4><i class="fa fa-home"></i>Address</h4>
+        <p>KN 2 Ave, KN 87 St <br>
+         Nyarugenge, Kigali <br> 
+         +250-783-140-374 <br>
+         <a href="mailto:hallo@archgridconsultant.com">hallo@archgridconsultant.com</a>
+       </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="footer-holder">
+  <div class="container"> 
+    <footer class="site-footer">
+      <div class="row">
+        <div class="col-lg-12"> 
+        <p>© Copyright ArchGrid Consultant ltd</p>
+
+        </div> 
+      </div>
+    </footer>  
+  </div>
+</div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/superfish.js"></script>
+    <script src="js/jquery.easing.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.colorbox-min.js"></script>
+    <script src="js/jflickrfeed.min.js"></script>
+    <script src="js/jquery.fitvids.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+    <script src="js/gmap3.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.min.js"></script> 
+    <script src="js/jquery.fractionslider.min.js"></script>
+    <script src="js/main.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('#test').gmap3({
+          map: {
+          options: {
+            maxZoom: 15
+          }  
+        },
+        marker:{
+          latLng:[-1.941627,30.055232],
+          options: { 
+           icon: new google.maps.MarkerImage(
+             "images/marker-icon.png",
+             new google.maps.Size(32, 32, "px", "px")
+           )
+          }
+          }
+        },
+        "autofit" );
+          
+          $("#")
+          $.ajax({
+              url:'http://localhost/arch/php/email.php',
+              type:'GET',
+              data:{
+                  fname: $("#fname").val(),
+                  email: $("#email").val(),
+                  message: $("#message").val()
+              },
+              success: function(data){
+                  alert(data);
+              },
+              error: function(error){
+                  
+              }
+          });
+      });
+    </script>
+  </body>
+</html>
